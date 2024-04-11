@@ -1,14 +1,8 @@
 body{
     background-color: rgb(209, 209, 209);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: auto;
-
-
-
 }
-.h5_carrusel{
-    color: brown;
-}
+
 footer{ 
     background-color: rgb(72, 96, 102);
     color: aliceblue;
@@ -64,21 +58,16 @@ footer{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-#card-container {
-    display: none;
-}
+
 
 #cardbackground {
     background-color: rgb(170, 166, 160);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: auto;
-    box-sizing: border-box;
     text-align: center;
+    margin: auto;
 }
 
-.card_aling{
-    padding: auto;
-}
+
 .offcanvas {
     position: fixed;
     top: 20px;
@@ -122,4 +111,10 @@ footer{
     font-size: 36px;
     margin-left: 50px;
   }
-  
+
+.container-fliud1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
