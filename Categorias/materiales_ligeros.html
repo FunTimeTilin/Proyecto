@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style_cat.css">
 </head>
 <body>
+  <div class="wrapper">
   <!-- Incio navbar -->
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -46,7 +47,7 @@
                 Catalogo de herramientas
                 </a>
                 <ul class="dropdown-menu px-3">
-                  <li><a class="dropdown-item" href="herramientas_manuales.html">herramientas_manuales</a></li>
+                  <li><a class="dropdown-item" href="herramientas_manuales.html">Herramientas manuales</a></li>
                   <li><a class="dropdown-item" href="materiales_ligeros.html">Materiales ligeros</a></li>
                   <li><a class="dropdown-item" href="EPP.html">Elementos de protección personal</a></li>
                 </ul>
@@ -71,46 +72,53 @@
 
   <br>
   <br>
-  <div>
-  <div class="card" style="width: 18rem;">
-    <img src="../IMG/piso flotante.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Piso flotante</h5>
-      <p class="card-text">Piso flotante para interiores</p>
-      <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card" style="width: 10rem;" id="cardbackground">
+          <img src="../IMG/piso flotante.jpeg" class="card-img-top" alt="..." id="cardbackground">
+          <div class="card-body">
+            <h5 class="card-title">Piso flotante</h5>
+            <p class="card-text">Piso flotante para interiores</p>
+            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 10rem;" id="cardbackground">
+          <img src="../IMG/Pintura en tarro.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Pintura para exteriores</h5>
+            <p class="card-text">Pintura blanca para exteriores</p>
+            <a href="materiales ligeros/pint_ext.html" class="btn btn-dark">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 10rem;" id="cardbackground">
+          <img src="https://sodimac.scene7.com/is/image/SodimacCL/3267326_01?wid=1500&hei=1500&qlt=70" class="card-img-top" alt="..." >
+          <div class="card-body">
+            <h5 class="card-title">Cemento</h5>
+            <p class="card-text">Cemento tradicional</p>
+            <a href="#" class="btn btn-dark">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 10rem;" id="cardbackground">
+          <img src="../IMG/agorex.webp" class="card-img-top" alt="..." id="cardbackground">
+          <div class="card-body">
+            <h5 class="card-title">Agorex</h5>
+            <p class="card-text">Pegamento agorex</p>
+            <a href="#" class="btn btn-dark">Ver detalles</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="../IMG/Pintura en tarro.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Pintura para exteriores</h5>
-      <p class="card-text">Pintura blanca para exteriores</p>
-      <a href="#" class="btn btn-dark">Ver detalles</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="https://sodimac.scene7.com/is/image/SodimacCL/3267326_01?wid=1500&hei=1500&qlt=70" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Cemento</h5>
-      <p class="card-text">Cemento tradicional</p>
-      <a href="#" class="btn btn-dark">Ver detalles</a>
-    </div>
-  </div>
-  
-  <div class="card" style="width: 18rem;">
-    <img src="../IMG/agorex.webp" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Agorex</h5>
-      <p class="card-text">Pegamento agorex</p>
-      <a href="#" class="btn btn-dark">Ver detalles</a>
-    </div>
-  </div>
   </div>
 
   <!-- Inicio footer -->   
-  <footer> 
+  <footer class="footer"> 
     <nav class="navbarfooter">
       <div class="container-fluid">
         <ul class="navbarfooter_ul">
