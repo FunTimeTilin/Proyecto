@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Series ID</th>
+        <th>Título</th>
+        <!-- Agrega más columnas según sea necesario -->
+    </tr>
+    {% for row in resultados %}
+    <tr>
+        <td>{{ row.seriesId }}</td>
+        <td>{{ row.spanishTitle }}</td>
+        <!-- Agrega más celdas según sea necesario -->
+    </tr>
+    {% endfor %}
+</table>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ferremapp.apps.FerremappConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

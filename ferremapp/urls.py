@@ -1,22 +1,28 @@
-from django.urls import path
-from . import views
+from django.urls import path, include
+from .views import *
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(r'productos', ProductoViewSet)
+
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('login/', views.login_view, name='login'),
-    path('register/', views.register, name='register'),
-    path('vendedor/', views.vendedor, name='vendedor'),
-    path('bodeguero/', views.bodeguero, name='bodeguero'),
-    path('contador/', views.contador, name='contador'),
-    path('cliente/', views.cliente, name='cliente'),
-    path('epp/', views.epp, name='epp'),
-    path('acercade/', views.acercade, name='acercade'),
-    path('contacto/', views.contacto, name='contacto'),
-    path('carrito/', views.carrito, name='carrito'),
-    path('catalogo/', views.catalogo, name='catalogo'),
-    path('herramientasmanuales/', views.herramientasmanuales, name='herramientasmanuales'),
-    path('materialesligeros/', views.materialesligeros, name='materialesligeros'),
-    path('pint_ext/', views.pint_ext, name='pint_ext'),
-    path('piso_flot/', views.piso_flotante, name='piso_flotante'),
-    
+    path('', index, name='index'),
+    path('accounts/login/', login_view, name='login'),
+    path('register/', register, name='register'),
+    path('vendedor/', vendedor, name='vendedor'),
+    path('bodeguero/', bodeguero, name='bodeguero'),
+    path('contador/', contador, name='contador'),
+    path('cliente/', cliente, name='cliente'),
+    path('epp/', epp, name='epp'),
+    path('acercade/', acercade, name='acercade'),
+    path('contacto/', contacto, name='contacto'),
+    path('carrito/', carrito, name='carrito'),
+    path('catalogo/', catalogo, name='catalogo'),
+    path('herramientasmanuales/', herramientasmanuales, name='herramientasmanuales'),
+    path('materialesligeros/', materialesligeros, name='materialesligeros'),
+    path('pint_ext/', pint_ext, name='pint_ext'),
+    path('piso_flot/', piso_flotante, name='piso_flotante'),
+    path('buscar/', buscarSeries, name='buscarSeries'),
+    path('api/', include(router.urls)),
 ]
