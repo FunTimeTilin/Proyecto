@@ -103,3 +103,16 @@ footer{
     display: flex;
     flex-direction: column;
   }
+  .flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+.Precio{
+  font-size: 40px;
+}
+.boton{
+  color: brown;
+}
+
