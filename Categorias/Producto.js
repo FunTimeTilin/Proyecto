@@ -1,7 +1,7 @@
 
-    const API_URL = "https://mindicador.cl/api";
+const API_URL = "https://mindicador.cl/api/uf";
 
-fetch(`${API_URL}/uf`)
+fetch(`${API_URL}`)
     .then((response) => response.json())
     .then((data) => {
         const ufValue = data.serie[0].valor; 
