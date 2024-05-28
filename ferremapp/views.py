@@ -1,11 +1,17 @@
 from django.shortcuts import render, redirect
 from .forms import *
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import bcchapi
 from rest_framework import viewsets
 from .models import Producto
 from .serializers import ProductoSerializer
+from django.http import JsonResponse
+from django.conf import settings
+from django.urls import reverse
+from transbank.webpay.webpay_plus.transaction import Transaction, WebpayOptions
+from transbank.common.integration_type import IntegrationType
+
 
 # Create your views here.
 
@@ -52,12 +58,17 @@ def login_view(request):
             msg = 'Error al enviar el formulario'
     return render(request, 'ferremapp/login.html', {'form': form, 'msg': msg})
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
 @login_required
 def index(request):
     return render(request, 'ferremapp/index.html')
 @login_required
 def vendedor(request):
-    return render(request, 'ferremapp/vendedor.html')
+    Productos = Producto.objects.all()
+    return render(request, 'ferremapp/vendedor.html', {'Productos': Productos})
 @login_required
 def bodeguero(request):
     return render(request, 'ferremapp/bodeguero.html')
@@ -106,7 +117,67 @@ def buscarSeries(request):
     else:
         return render(request, 'ferremapp/buscar.html')
 
+def obtener_producto(request, codigo_producto):
+    producto = Producto.objects.filter(codigo_producto=codigo_producto)
+    if producto:
+        return JsonResponse({
+            'marca': producto.marca,
+            'codigo': producto.codigo,
+            'nombre': producto.nombre,
+            'fecha': producto.fecha,
+            'valor': producto.valor
+        })
+    else:
+        return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+    
+def listar_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'productos.html', {'productos': productos})
+
 
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
+
+def antiparra(request):
+    return render(request, 'ferremapp/antiparra.html')
+
+def guantes(request):
+    return render(request, 'ferremapp/guantes.html')
+
+def protectoroido(request):
+    return render(request, 'ferremapp/protector_oido.html')
+
+def mascara(request):
+    return render(request, 'ferremapp/mascara.html')
+
+def zapatoseguridad(request):
+    return render(request, 'ferremapp/zapato_seguridad.html')
+
+def initiate_payment(request):
+    transaction = Transaction(WebpayOptions(
+        commerce_code='597055555532',             # Test commerce code
+        api_key='579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',
+        integration_type=IntegrationType.TEST     # Use TEST for sandbox
+    ))
+    response = transaction.create(
+        buy_order='order123456789',
+        session_id='session123456',
+        amount=100000,                              # Amount in CLP
+        return_url=request.build_absolute_uri(reverse('payment_confirm'))
+    )
+    return redirect(response['url'] + '?token_ws=' + response['token'])
+
+def payment_confirm(request):
+    token = request.GET.get('token_ws')
+    transaction = Transaction(WebpayOptions(
+        commerce_code='597055555532',             # Test commerce code
+        api_key='579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',
+        integration_type=IntegrationType.TEST     # Use TEST for sandbox
+    ))
+    response = transaction.commit(token)
+
+    if response['status'] == 'AUTHORIZED':
+        return render(request, 'ferremapp/approved.html', {'response': response})
+    else:
+        return render(request, 'ferremapp/failed.html', {'response': response})

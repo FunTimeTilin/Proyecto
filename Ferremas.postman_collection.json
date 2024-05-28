@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "22ce0bea-a4f1-4227-ae45-084da36beab9",
+		"name": "Integración de Plataformas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21132664",
+		"_collection_link": "https://medrano00.postman.co/workspace/6ad56c51-c3d1-476f-836a-3ee1071d8a96/collection/21132664-22ce0bea-a4f1-4227-ae45-084da36beab9?action=share&source=collection_link&creator=21132664"
+	},
+	"item": [
+		{
+			"name": "Obtener Datos del Banco Central de Chile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=faboespinozam@icloud.com&pass=Medrano00!&function=GetSeries&timeseries=F022.TPM.TIN.D001.NO.Z.D&firstdate=2021-10-10&lastdate=2021-10-15",
+					"protocol": "https",
+					"host": [
+						"si3",
+						"bcentral",
+						"cl"
+					],
+					"path": [
+						"SieteRestWS",
+						"SieteRestWS.ashx"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "faboespinozam@icloud.com"
+						},
+						{
+							"key": "pass",
+							"value": "Medrano00!"
+						},
+						{
+							"key": "function",
+							"value": "GetSeries"
+						},
+						{
+							"key": "timeseries",
+							"value": "F022.TPM.TIN.D001.NO.Z.D"
+						},
+						{
+							"key": "firstdate",
+							"value": "2021-10-10"
+						},
+						{
+							"key": "lastdate",
+							"value": "2021-10-15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Datos de la API de Productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codigo_producto\": \"FER-12346\",\r\n  \"marca\": \"Black and Decker\",\r\n  \"codigo\": \"BAD-12346\",\r\n  \"nombre\": \"Destornillador Black and Decker\",\r\n  \"fecha\": \"2023-05-20T03:00:00.000Z\",\r\n  \"valor\": \"109990\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/productos?codigo_producto=FER-12345",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"productos"
+					],
+					"query": [
+						{
+							"key": "codigo_producto",
+							"value": "FER-12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extraer precio de UF al día actual al último mes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mindicador.cl/api/uf?fecha=2024-05-20T04:00:00.000Z",
+					"protocol": "https",
+					"host": [
+						"mindicador",
+						"cl"
+					],
+					"path": [
+						"api",
+						"uf"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2024-05-20T04:00:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

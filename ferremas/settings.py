@@ -31,6 +31,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+TRANSBANK = {
+    'WEBPAY_PLUS_COMMERCE_CODE': '597055555532',  # Transbank test commerce code
+    'WEBPAY_PLUS_API_KEY': '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',      # Transbank test API key
+    'WEBPAY_PLUS_ENVIRONMENT': 'INTEGRACION',     # 'PRODUCCION' for production
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ferremapp.apps.FerremappConfig',
     'rest_framework',
+    'transbank',
 ]
 
 MIDDLEWARE = [
