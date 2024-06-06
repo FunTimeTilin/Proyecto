@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremas</title>
+    <link rel="icon" type="image/png" href="../../IMG/icon.png">
+    <link rel="stylesheet" href="../../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap-5.3.3-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../style_cat.css">
+</head>
+<body>
+<!-- navbar menu -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand col-2 px-3" href="../../menu.html">
+              <img src="../../IMG/logoferramas.png" alt="No hay :v" width="124">
+            </a>
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 h3 col-6">
+                  <li class="nav-item px-3">
+                    <a class="nav-link active" aria-current="page" href="../../menu.html">
+                      Inicio
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a 
+                    class="nav-link dropdown-toggle"
+                    href="../../NavBar_menu/catalogo.html"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Catalogo de herramientas
+                    </a>
+                    <ul class="dropdown-menu px-3">
+                      <li><a class="dropdown-item" href="../herramientas_manuales.html">Herramientas manuales</a></li>
+                      <li><a class="dropdown-item" href="../materiales_ligeros.html">Materiales ligeros</a></li>
+                      <li><a class="dropdown-item" href="../EPP.html">Elementos de protección personal</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 col-3">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">
+                </form>
+                <div class="mx-auto">
+                <ul class="navbar-nav">
+                  <li><a class="nav-link navbar-nav" href="../../NavBar_menu/inicio_sesion.html">Iniciar sesion</a></li>
+                  <li><a class="nav-link" href="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t500x500.jpg">/</a></li>
+                  <li><a class="nav-link navbar-nav" href="../../NavBar_menu/registro.html">Registro</a></li>
+                  <li><a class="nav-link navbar-nav" href="../../NavBar_menu/carrito.html"><img src="../../IMG/carro.png" alt="carrito" width="50"></a></li>
+                </ul>
+                </div>
+              </div>
+          </div>
+        </nav>
+    </header>
+<!-- main -->
+<main class="wrapper">
+  <br>
+  
+  <div class="col-12 justify-content-center">
+    <div class="flex-container col-10 mx-auto shadow-lg mt-5" style="background-color: rgb(185, 188, 190);">
+      <img src="../../IMG/piso flotante.jpeg" alt="diabro no cargo" height="500">
+      <div class="row-cols-1">
+      <h3>Piso flotante</h3>
+      <ul>Transforma tus espacios con la elegancia y practicidad de nuestros pisos flotantes estándar. <br>
+
+        <li>Instalación sencilla y rápida: Sin necesidad de pegamento ni herramientas especiales</li> <br>
+        <li>Resistentes al desgaste: Ideales para áreas de alto tráfico.</li> <br>
+        <li>Fáciles de limpiar y mantener: Basta con barrer o aspirar y usar productos específicos para pisos flotantes.</li> <br>
+        <li>Variedad de diseños: Elige entre una amplia gama de colores y texturas que imitan la madera natural.</li> <br> <br>
+        ¡No esperes más y dale un nuevo aire a tus ambientes con nuestros pisos flotantes estándar!</ul>
+        <span><b class="Precio">$</b><b type="number" class="Precio" id="preciopro">15000</b></span>
+        <button class="btn boton" id="calcular">Ver valor en UF</button>
+        <br><br>
+        <b class="Precio" id="resultado"></b> 
+        <button class="btn boton" id="ocultarBtn" style="display: none;">Ocultar resultado</button> 
+      </div>
+    </div>
+  </div>
+    
+</main>
+<!-- Footer -->
+    <footer class="footer"> 
+        <nav class="navbarfooter">
+          <div class="container-fluid">
+            <ul class="navbarfooter_ul">
+              <li class="navbarfooter_ul_li "><a class="navbarfooter_ul_li_a" href="../../NavBar_menufooter/contacto.html">Nuestro contacto!😁</a></li>
+              <li class="navbarfooter_ul_li"><a class="navbarfooter_ul_li_a" href="../../NavBar_menufooter/acercade.html">Acerca de nosotros 😊</a></li>
+              <li class="navbarfooter_ul_li"><a class="navbarfooter_ul_li_a" href="https://www.google.com/maps/place/Triángulo+de+las+Bermudas/@23.181134,-73.0428993,6z/data=!4m6!3m5!1s0x89451ab5034cb7ab:0xb600ecf3df7aca4d!8m2!3d25!4d-71!16zL20vMDFqcGw?entry=ttu">Nuestra ubicacion 😎</a></li>
+            </ul>
+          </div>
+        </nav>
+    </footer>
+    <script src="../../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Producto.js" type="module"></script>
+</body>
+</html>
