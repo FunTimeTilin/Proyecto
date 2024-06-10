@@ -1,3 +1,4 @@
+/* Inicio de sesion */
 function validacion(){
   let user = document.getElementById("username").value;
   let pass = document.getElementById("pass").value;
@@ -18,33 +19,56 @@ function validacion(){
     document.getElementById("resultado").innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>El usuario debe contar con al menos 4 caracteres y un maximo de 25</div>"
   }
 }
+/* Formulario de registro */
+document.getElementById('registro').addEventListener('submit', function(event) {
+  var nombre = document.getElementById('nombre').value;
+  var apellidoPaterno = document.getElementById('apellido_paterno').value;
+  var apellidoMaterno = document.getElementById('apellido_materno').value;
+  var rut = document.getElementById('rut').value;
+  var contrasena = document.getElementById('contraseña').value;
+  var direccion = document.getElementById('direccion').value;
+  var email = document.getElementById('email').value;
+  var genero = document.getElementById('genero').value;
 
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const role = document.getElementById('rol').value;
-    const usernameError = document.getElementById('usernameError');
-    const passwordError = document.getElementById('passwordError');
-    const roleError = document.getElementById('rolError');
-    usernameError.textContent = '';
-    passwordError.textContent = '';
-    roleError.textContent = '';
+  if (nombre.length > 20 || nombre.length == 0) {
+      alert('El nombre no puede estar vacío y debe tener un máximo de 20 caracteres.');
+      event.preventDefault();
+  }
 
-    let isValid = true;
-    if (username.length < 4 || username.length > 20) {
-        usernameError.textContent = 'El nombre de usuario debe tener entre 4 y 20 caracteres.';
-        isValid = false;
-    }
-    if (password.length < 8) {
-        passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres.';
-        isValid = false;
-    }
-    if (role === '') {
-        roleError.textContent = 'Por favor, seleccione un rol.';
-        isValid = false;
-    }
-    if (isValid) {
-        alert('Formulario enviado correctamente.');
-    }
+  if (apellidoPaterno.length > 20 || apellidoPaterno.length == 0) {
+      alert('El apellido paterno no puede estar vacío y debe tener un máximo de 20 caracteres.');
+      event.preventDefault();
+  }
+
+  if (apellidoMaterno.length > 20 || apellidoMaterno.length == 0) {
+      alert('El apellido materno no puede estar vacío y debe tener un máximo de 20 caracteres.');
+      event.preventDefault();
+  }
+
+  if (rut.length > 10 || rut.length == 0) {
+      alert('El RUT no puede estar vacío y debe tener un máximo de 10 caracteres.');
+      event.preventDefault();
+  }
+
+  if (contrasena.length < 8 || contrasena.length > 20 || !/[a-z]/.test(contrasena) || !/[0-9]/.test(contrasena)) {
+      alert('La contraseña debe tener entre 8 y 20 caracteres y debe contener números y letras.');
+      event.preventDefault();
+  }
+
+  if (direccion.length > 50 || direccion.length == 0) {
+      alert('La dirección no puede estar vacía y debe tener un máximo de 50 caracteres.');
+      event.preventDefault();
+  }
+
+  if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+      alert('Por favor, introduce un correo electrónico válido.');
+      event.preventDefault();
+  }
+
+  if (genero == '') {
+      alert('Por favor, selecciona un género.');
+      event.preventDefault();
+  }
 });
+
+  
