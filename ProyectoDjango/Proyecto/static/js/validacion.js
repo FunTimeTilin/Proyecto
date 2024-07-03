@@ -71,24 +71,3 @@ document.getElementById('registro').addEventListener('submit', function(event) {
   }
 });
 
-  
-const openCartButton = document.getElementById('openCart');
-const closeCartButton = document.getElementById('closeCart');
-const cart = document.getElementById('cart');
-
-openCartButton.addEventListener('click', () => {
-    cart.style.right = '0'; // Mostrar el carrito
-});
-
-closeCartButton.addEventListener('click', () => {
-    cart.style.right = '-300px'; // Ocultar el carrito
-});
-
-// Función para agregar un producto al carrito
-function addToCart(productName, price) {
-    const cartContent = document.querySelector('.cart-content');
-    const productItem = document.createElement('div');
-    productItem.classList.add('product-item');
-    productItem.textContent = `${productName} - $${price}`;
-    cartContent.appendChild(productItem);
-}

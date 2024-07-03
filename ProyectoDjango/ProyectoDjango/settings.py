@@ -69,7 +69,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ProyectoDjango.wsgi.application'
+# LOGIN_URL
+LOGIN_URL = "login"
 
+# LOGIN_REDIRECT_URL
+LOGIN_REDIRECT_URL = "crud"
+
+# LOGOUT_REDIRECT_URL
+LOGOUT_REDIRECT_URL = "logout"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
