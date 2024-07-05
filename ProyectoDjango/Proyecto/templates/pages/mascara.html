@@ -18,7 +18,7 @@
   
   <div class="col-12 justify-content-center">
     <div class="flex-container col-10 mx-auto shadow-lg mt-5" style="background-color: rgb(185, 188, 190);">
-      <img src="../../IMG/casco.jpg" alt="diabro no cargo" height="500">
+      <img src="{% static 'IMG/casco.jpg'%}" alt="diabro no cargo" height="500">
       <div class="row-cols-1">
       <h3>Máscara para soldar</h3>
       <p>La máscara de soldar grado 10 es un equipo indispensable para profesionales y aficionados de la soldadura.
@@ -40,6 +40,6 @@
     {% include 'base/footer.html' %}
 <!-- Fin Footer -->
     <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static'js/Producto.js' %}" type="module"></script>
+    <script src="{% static 'js/Producto.js' %}" type="module"></script>
 </body>
 </html>

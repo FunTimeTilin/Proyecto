@@ -20,51 +20,51 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card" style="width: 15rem;" id="cardbackground">
-            <img src="../IMG/Antiparra.jpg" class="card-img-top" alt="..." id="cardbackground">
+            <img src="{% static 'IMG/Antiparra.jpg' %}" class="card-img-top" alt="..." id="cardbackground">
             <div class="card-body">
               <h5 class="card-title">Antiparra</h5>
               <p class="card-text">Lentes de protección</p>
-              <a href="epp/antiparra.html" class="btn btn-dark">Ver detalles</a>
+              <a href="{% url 'antiparra' %}" class="btn btn-dark">Ver detalles</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 15rem;" id="cardbackground">
-            <img src="../IMG/casco.jpg" class="card-img-top" alt="..." id="cardbackground">
+            <img src="{% static 'IMG/casco.jpg' %}" class="card-img-top" alt="..." id="cardbackground">
             <div class="card-body">
               <h5 class="card-title">Máscara de soldar</h5>
               <p class="card-text">Máscara para soldar grado 10</p>
-              <a href="epp/mascara.html" class="btn btn-dark">Ver detalles</a>
+              <a href="{% url 'mascara' %}" class="btn btn-dark">Ver detalles</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 15rem;" id="cardbackground">
-            <img src="../IMG/protector_oido.jpg" class="card-img-top" alt="..." id="cardbackground">
+            <img src="{%static 'IMG/protector_oido.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
             <div class="card-body">
               <h5 class="card-title">Protectores de oído</h5>
               <p class="card-text">Protectores de oído tipo cintillo</p>
-              <a href="epp/protector_oido.html" class="btn btn-dark">Ver detalles</a>
+              <a href="{% url 'protector' %}" class="btn btn-dark">Ver detalles</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 15rem;" id="cardbackground">
-            <img src="../IMG/Zapatos_seguridad.jpg" class="card-img-top" alt="..." id="cardbackground">
+            <img src="{%static 'IMG/Zapatos_seguridad.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
             <div class="card-body">
               <h5 class="card-title">Zapatos de seguridad</h5>
               <p class="card-text">Calzado de seguridad talla 44</p>
-              <a href="epp/zapato_seguridad.html" class="btn btn-dark">Ver detalles</a>
+              <a href="{% url 'zapatos' %}" class="btn btn-dark">Ver detalles</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 15rem;" id="cardbackground">
-            <img src="../IMG/Guante.jpg" class="card-img-top" alt="..." id="cardbackground">
+            <img src="{%static 'IMG/Guante.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
             <div class="card-body">
               <h5 class="card-title">Guantes antideslizante</h5>
               <p class="card-text">Guantes de tela con antideslizante</p>
-              <a href="epp/guantes.html" class="btn btn-dark">Ver detalles</a>
+              <a href="{% url 'guantes' %}" class="btn btn-dark">Ver detalles</a>
             </div>
           </div>
         </div>
