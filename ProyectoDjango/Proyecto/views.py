@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Genero, Usuario
+from .models import Genero, Usuario, Cargo, Producto, Categoria
 from .forms import GeneroForm,UsuarioForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
@@ -66,13 +66,65 @@ def pintura(request):
 
 def piso(request):
     context = {}
-    return render (request, "pages/Piso_flot.html", context)
+    return render (request, "pages/piso_flot.html", context)
+
+def cemento(request):
+    context = {}
+    return render (request, "pages/cemento.html", context)
+
+def agorex(request):
+    context = {}
+    return render (request, "pages/agorex.html", context)
+    
+def ladrillo(request):
+    context = {}
+    return render (request, "pages/ladrillo.html", context)
+
+def saco_arena(request):
+    context = {}
+    return render (request, "saco_arena.html", context)
+
+def barnis(request):
+    context = {}
+    return render (request, "pages/barnis.html", context)
+
+def ceramica(request):
+    context = {}
+    return render (request, "pages/ceramica.html", context)
 
 
 """ HERRANIENTAS MANUALES """
 def herramientas(request):
     context = {}
     return render (request, "pages/herramientas_manuales.html", context)
+
+def atornillador(request):
+    context = {}
+    return render (request, "pages/ator_bosch.html", context)
+
+def martillo(request):
+    context = {}
+    return render (request, "pages/martillo.html", context) 
+
+def llave_francesa(request):
+    context = {}
+    return render (request, "pages/llave_francesa.html", context)
+
+def lijadora(request):
+    context = {}
+    return render (request, "pages/lijadora.html", context)
+
+def sierra_circular(request):
+    context = {}
+    return render (request, "pages/sierra_cir.html", context)
+
+def ator_inalambrico(request):
+    context = {}
+    return render (request, "pages/ator_inalambrico", context)
+
+def taladro (request):
+    context = {}
+    return render (request, "pages/taladro.html", context)
 
 
 """ CRUD'S """
@@ -88,8 +140,10 @@ def crud(request):
 def user_add(request):
     if request.method != "POST":
         generos = Genero.objects.all()
+        cargos = Cargo.objects.all()
         context = {
             "generos": generos,
+            "cargos": cargos,
         }
         return render(request, "pages/user_add.html", context)
     else:
@@ -99,6 +153,7 @@ def user_add(request):
         appMaterno = request.POST["appMaterno"]
         fechaNac = request.POST["fecha"]
         genero = request.POST["genero"]
+        cargo = request.POST["cargo"]
         telefono = request.POST["telefono"]
         correo = request.POST["correo"]
         password = request.POST["password"]
@@ -106,6 +161,7 @@ def user_add(request):
         activo = True
 
         objGenero = Genero.objects.get(id_genero=genero)
+        objCargo = Cargo.objects.get(id_cargo=cargo)
 
         obj = Usuario.objects.create(
             rut=rut,
@@ -114,6 +170,7 @@ def user_add(request):
             apellido_materno=appMaterno,
             fecha_nacimiento=fechaNac,
             id_genero=objGenero,
+            id_cargo=objCargo,
             telefono=telefono,
             email=correo,
             password=password,
@@ -134,12 +191,14 @@ def user_update(request):
         appMaterno = request.POST["appMaterno"]
         fechaNac = request.POST["fecha"]
         genero = request.POST["genero"]
+        cargo = request.POST["nombre_cargo"]
         telefono = request.POST["telefono"]
         correo = request.POST["correo"]
         password = request.POST["password"]
         direccion = request.POST["direccion"]
         activo = True
         objGenero = Genero.objects.get(id_genero=genero)
+        objCargo = Cargo.objects.get(id_cargo=cargo)
         obj = Usuario(
             rut=rut,
             nombre=nombre,
@@ -147,6 +206,7 @@ def user_update(request):
             apellido_materno=appMaterno,
             fecha_nacimiento=fechaNac,
             id_genero=objGenero,
+            id_cargo=objCargo,
             telefono=telefono,
             email=correo,
             password=password,
@@ -156,10 +216,12 @@ def user_update(request):
         obj.save()
 
         generos = Genero.objects.all()
+        cargos = Cargo.objects.all()
         context = {
             "mensaje": "Modificado con Exito",
             "generos":generos,
             "usuario":obj,
+            "cargos":cargos,
         }
         return render(request, "pages/user_update.html", context)
     
@@ -227,82 +289,6 @@ def user_findEdit(request,pk):
         }
         return render(request,"pages/crud.html",context)
     
-@login_required    
-def crud_genero(request):
-    genero = Genero.objects.all()
-
-    context={
-        "generos":genero,
-    }
-    return render(request,"pages/crud_genero.html",context)
-
-def genero_add(request):
-    formGenero = GeneroForm()
-    formUsuario = UsuarioForm()
-    if request.method=="POST":
-        nuevo = GeneroForm(request.POST)
-        if nuevo.is_valid():
-            nuevo.save()
-
-            context={
-                "mensaje":"Agregado con exito",
-                "form":formGenero
-            }
-            return render(request,"pages/genero_add.html",context)
-    else:
-        context = {
-            "form":formGenero,
-            "form2":formUsuario
-        }
-        return render(request,"pages/genero_add.html",context)
-
-def genero_del(request,pk):
-    try:
-        genero = Genero.objects.get(id_genero=pk)
-        genero.delete()
-
-        generos = Genero.objects.all()
-        context={
-            "mensaje":"Registro eliminado exitosamente",
-            "generos":generos
-        }
-        return render(request,"pages/crud_genero.html",context)
-    except:
-        generos = Genero.objects.all()
-        context={
-            "mensaje":"Error, Genero no encontrado...",
-            "generos":generos
-        }
-        return render(request,"pages/crud_genero.html",context)
-
-def genero_edit(request,pk):
-    if pk!="":
-        genero = Genero.objects.get(id_genero=pk)
-        form = GeneroForm(instance=genero)
-        if request.method=="POST":
-            nuevo = GeneroForm(request.POST,instance=genero)
-
-            if nuevo.is_valid():
-                nuevo.save()
-
-                context ={
-                    "mensaje":"Modificado con exito",
-                    "form":nuevo
-                }
-                return render(request,"pages/genero_edit.html",context)
-        else:
-            context={
-                "form":form,
-            }
-            return render(request,"pages/genero_edit.html",context)
-    else:
-        generos = Genero.objects.all()
-        context={
-            "mensaje":"Error, genero no encontrado",
-            "generos":generos
-        }
-        return render(request,"pages/crud_genero.html",context)
-    
 def desconectar(request):   
     if request.user.is_authenticated:
         logout(request)
@@ -336,3 +322,39 @@ def conectar(request):
 
         }
         return render(request,"pages/login.html",context)
+
+def catalogo(request):
+    productos = Producto.objects.all()
+    context = {
+        "productos":productos,
+    }
+    return render (request, "pages/catalogo.html", context) 
+
+def producto_add(request):
+    if request.method != "POST":
+        categorias = Categoria.objects.all()
+        context = {
+            "categorias":categorias,
+        }
+        return render(request, "pages/producto_add.html", context)
+    else:
+        nombre_producto = request.POST["nombre_producto"]
+        precio = request.POST["precio"]
+        categoria = request.POST["categoria"]
+        img_producto = request.POST["img_producto"]
+        descripcion = request.POST["descripcion"]
+
+        objCategoria = Categoria.objects.get(id_categoria=categoria)
+        
+        obj = Producto.objects.create(
+            nom_producto = nombre_producto,
+            preciopro = precio,
+            id_categoria = objCategoria,
+            img_pro = img_producto,
+            descrip = descripcion,
+        )
+        obj.save()
+        context = {
+            "aviso": "Producto creado correctamente!!!"
+        }
+        return render (request, "pages/producto_add.html", context)

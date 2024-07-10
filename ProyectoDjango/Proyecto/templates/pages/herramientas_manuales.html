@@ -26,67 +26,67 @@
           <div class="card-body">
             <h5 class="card-title">Atornillador</h5>
             <p class="card-text">Atornillador electrico marca BOSCH</p>
-            <a href="" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'atornillador' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/martillo.png" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static 'IMG/martillo.png' %}" class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
             <h5 class="card-title">Martillo estándar</h5>
             <p class="card-text">Martillo estándar con mango de madera</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'martillo' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/Llave francesa.png" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static 'IMG/Llave francesa.png' %}" class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
-            <h5 class="card-title">Llave frances</h5>
+            <h5 class="card-title">Llave francesa</h5>
             <p class="card-text">Llave francesa de acero</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'llave francesa' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/Atornillador inalambrico.jpg" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static 'IMG/Atornillador inalambrico.jpg' %} class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
             <h5 class="card-title">Atornillador</h5>
             <p class="card-text">Atornillador electrico marca STANLEY</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'atornillador_inalambrico' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/lijadora.png" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static 'IMG/lijadora.png' %}" class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
             <h5 class="card-title">Lijadora</h5>
             <p class="card-text">Lijadora electrica marca MAKITA</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'lijadora' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/taladro.png" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static '/IMG/taladro.png' %}" class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
             <h5 class="card-title">taladro</h5>
             <p class="card-text">Taladro electrico marca BOSCH</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'taladro' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card" style="width: 15rem;" id="cardbackground">
-          <img src="../IMG/sierra-circular.webp" class="card-img-top" alt="..." id="cardbackground">
+          <img src="{% static '/IMG/sierra-circular.webp' %}" class="card-img-top" alt="..." id="cardbackground">
           <div class="card-body">
             <h5 class="card-title">Sierra circular</h5>
             <p class="card-text">Sierra circular electrica marca MAKITA</p>
-            <a href="materiales ligeros/Piso_flot.html" class="btn btn-dark">Ver detalles</a>
+            <a href="{% url 'sierra circular' %}" class="btn btn-dark">Ver detalles</a>
           </div>
         </div>
       </div>
@@ -98,7 +98,6 @@
 <!-- Inicio footer -->   
   {% include 'base/footer.html' %}
 <!-- Fin --> 
-
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

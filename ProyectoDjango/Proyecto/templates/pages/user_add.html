@@ -53,6 +53,14 @@
                             <label for="genero" class="form-label">Genero</label>
                         </div>
                         <div class="form-floating mb-3 w-400 mx-auto">
+                            <select class="form-select" name="cargo" id="nombre_cargo">
+                                {% for tmp in cargos %}
+                                <option value="{{tmp.id_cargo}}">{{tmp.nombre_cargo}}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="cargo" class="form-label">Cargo</label>
+                        </div>
+                        <div class="form-floating mb-3 w-400 mx-auto">
                             <input type="email" class="form-control" id="correo" name="correo">
                             <label for="correo" class="form-label">Correo</label>
                         </div>
