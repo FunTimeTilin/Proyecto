@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremas</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'IMG/icon.png'%}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style_cat.css'%}">
+</head>
+<body>
+  <!-- Inicio navbar -->
+  {% include 'base/header.html'%}
+  <!-- Fin -->
+  <!-- Main -->
+  <br>
+  <main class="wrapper">
+    <div class="container-fluid">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card" style="width: 15rem;" id="cardbackground">
+            <img src="{% static 'IMG/Antiparra.jpg' %}" class="card-img-top" alt="..." id="cardbackground">
+            <div class="card-body">
+              <h5 class="card-title">Antiparra</h5>
+              <p class="card-text">Lentes de protección</p>
+              <a href="{% url 'antiparra' %}" class="btn btn-dark">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 15rem;" id="cardbackground">
+            <img src="{% static 'IMG/casco.jpg' %}" class="card-img-top" alt="..." id="cardbackground">
+            <div class="card-body">
+              <h5 class="card-title">Máscara de soldar</h5>
+              <p class="card-text">Máscara para soldar grado 10</p>
+              <a href="{% url 'mascara' %}" class="btn btn-dark">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 15rem;" id="cardbackground">
+            <img src="{%static 'IMG/protector_oido.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
+            <div class="card-body">
+              <h5 class="card-title">Protectores de oído</h5>
+              <p class="card-text">Protectores de oído tipo cintillo</p>
+              <a href="{% url 'protector' %}" class="btn btn-dark">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 15rem;" id="cardbackground">
+            <img src="{%static 'IMG/Zapatos_seguridad.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
+            <div class="card-body">
+              <h5 class="card-title">Zapatos de seguridad</h5>
+              <p class="card-text">Calzado de seguridad talla 44</p>
+              <a href="{% url 'zapatos' %}" class="btn btn-dark">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 15rem;" id="cardbackground">
+            <img src="{%static 'IMG/Guante.jpg'%}" class="card-img-top" alt="..." id="cardbackground">
+            <div class="card-body">
+              <h5 class="card-title">Guantes antideslizante</h5>
+              <p class="card-text">Guantes de tela con antideslizante</p>
+              <a href="{% url 'guantes' %}" class="btn btn-dark">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br>
+  <!-- Fin main -->
+  <!-- Inicio footer -->   
+  {% include 'base/footer.html'%}
+  <!-- Fin --> 
+  <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</body>
+</html>

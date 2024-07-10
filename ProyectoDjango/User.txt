@@ -1,0 +1,3 @@
+User: admin
+mail: admin@admin.com
+pass: 1234

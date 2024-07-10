@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremas</title>
+    <link rel="icon" type="image/png" href="../IMG/icon.png">
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'IMG/icon.png'%}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style_menu.css'%}">
+</head>
+<body>
+    <!-- Navbar menu -->
+    {% include 'base/header.html'%}
+    <!-- Body -->
+<br><br>
+<main class="wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 shadow-lg mx-auto text-center p-3" style="background-color: rgb(222, 219, 219);">
+      <h2 class="my-3">Registro</h2>
+    <form id="registro" class="form-floating col-10" method="post" action="{ url 'registro'}">
+      {% csrf_token %}
+      <div class="form-floating mb-3 w-25 mx-auto col-6">
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="form-control">
+      <label for="Nombre" class="form-label">Nombre</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="Apellido Paterno" class="form-control">
+      <label for="apellido_paterno" class="form-label">Apellido paterno</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Apellido Materno" class="form-control">
+      <label for="apellido_materno" class="form-label">Apellido materno</label>
+      </div>
+      
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="text" id="rut" name="rut" placeholder="RUT" class="form-control">
+      <label for="rut" class="form-label">Rut</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" class="form-control">
+      <label for="contraseña" class="form-label">Contraseña</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección" class="form-control">
+      <label for="direccion" class="form-label">Dirección</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
+      <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+      <label for="email" class="form-label">Email</label>
+      </div>
+
+      <div class="form-floating mb-3 w-25 mx-auto">
+      <select id="genero" name="genero" class="form-control">
+          <option value="">Seleccione un género</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="no_especificado">No especificado</option>
+      </select>
+      <label for="genero" class="form-label">Género</label>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Registrarse</button>
+    </form>
+    </div>
+  </div>
+</div>
+</main>
+    <!-- Footer -->
+    {% include 'base/footer.html' %}
+
+      <script src="{% static 'js/validacion.js'%}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+    path("producto_mod/<str:pk>", views.producto_mod, name="producto_mod"),
+    path("producto_del/<str:pk>", views.producto_del, name="producto_del"),

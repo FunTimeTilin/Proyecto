@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremas</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'IMG/icon.png' %}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style_menu.css'%}">
+</head>
+<body>
+    <!-- header -->
+     {% include 'base/header.html' %}
+
+     <!-- main -->
+    <main class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 shadow-lg mx-auto text-center p-3">
+                    <h1 class="my-3">Registro de productos</h1>
+                    <form action="{%url 'producto_add' %}" method="post" class="form-floating" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3 w-400 mx-auto">
+                            <input type="text" class="form-control" id="nombre_producto" name="nombre_producto">
+                            <label for="nombre_producto" class="form-label">Nombre del producto</label>
+                        </div>
+                        <div class="form-floating mb-3 w-400 mx-auto">
+                            <input type="number" class="form-control" id="precio" name="precio">
+                            <label for="preciopro" class="form-label">Precio del producto</label>
+                        </div>
+                        <div class="form-floating mb-3 w-400 mx-auto">
+                            <select class="form-select" id="categoria" name="categoria">
+                                {% for tmp in categorias %}
+                                <option value="{{tmp.id_categoria}}">{{tmp.nombre_categoria}}</option>
+                                {%  endfor %}
+                            </select>
+                            <label for="categoria" class="form-label">Categoria</label>
+                        </div>
+                        <div class="form-floating mb-3 w-400 mx-auto">
+                            <input type="file" class="form-control" id="img_producto" name="img_producto">
+                            <label for="img_producto" class="form-label">Imagen del producto</label>
+                        </div>
+                        <div class="form-floating mb-3 w-400 mx-auto">
+                            <input type="text" class="form-control" id="descripcion" name="descripcion">
+                            <label for="descripcion" class="form-label">Escribe la descripcion del producto</label>
+                        </div>
+                        {% if aviso %}
+                        <div class="alert alert-success w-250 mx-auto">
+                            {{aviso}}
+                        </div>
+                        {% endif %}
+                        <div>
+                            <button type="submit" class="btn btn-success">Añadir producto</button><br>
+                            <a href="{% url 'catalogo' %}"><button type="button" class="btn btn-primary mt-3">Volver al catálogo</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+     <!-- footer -->
+    {% include 'base/footer.html' %}
+
+     <script src="{%static 'js/bootstrap.min.bundle.js'%}"></script>
+</body>
+</html>

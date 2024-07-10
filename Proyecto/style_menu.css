@@ -1,0 +1,149 @@
+body{
+    background-color: rgb(209, 209, 209);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+footer{ 
+    background-color: rgb(72, 96, 102);
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: auto;
+}
+
+.navbarfooter{
+    background-color: rgb(107, 135, 135);
+    color: rgb(47, 89, 92);
+    padding: 15px;
+    margin-top: auto;
+}
+
+.navbarfooter_ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbarfooter_ul_li{
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbarfooter_ul_li_a {
+    color:rgb(47, 89, 92) ;
+    text-decoration: none;
+    transition: all;
+    transition-duration: 1s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbarfooter_ul_li_a:hover{
+    opacity: 25%;
+}
+
+.ulimgbody {
+    text-align: center;
+    display: inline;
+    list-style-type: none;
+}
+
+.ulliimg {
+    display: inline-block; 
+    text-align: center; 
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.ulimg {
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+
+#cardbackground {
+    background-color: rgb(170, 166, 160);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+
+.offcanvas {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+  
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+.offcanvas-content {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+  
+.offcanvas-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+.offcanvas-content a:hover {
+    color: #f1f1f1;
+  }
+  
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+table {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.th {
+  border: 1px solid #f1f1f1;
+  background-color: #dda;
+
+}
+
+.td {
+  border: 1px solid #f1f1f1;
+}

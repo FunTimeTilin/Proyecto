@@ -2,6 +2,7 @@ body{
     background-color: rgb(209, 209, 209);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
+    text-align: center;
 }
 html, body{
     height: 100%;
@@ -47,27 +48,6 @@ footer{
     opacity: 25%;
 }
 
-.ulimgbody {
-    text-align: center;
-    display: inline;
-    list-style-type: none;
-}
-
-.ulliimg {
-    display: inline-block; 
-    text-align: center; 
-    margin-right: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.ulimg {
-    border-radius: 50%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-
-
 #cardbackground {
     background-color: rgb(170, 166, 160);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -83,12 +63,12 @@ footer{
     z-index: 999;
   }
   
-  .openbtn {
+.openbtn {
     font-size: 20px;
     cursor: pointer;
-  }
+}
   
-  .offcanvas-content {
+.offcanvas-content {
     position: fixed;
     left: 0;
     top: 0;
@@ -97,29 +77,28 @@ footer{
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
-  }
+}
   
-  .offcanvas-content a {
+.offcanvas-content a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
+}
   
-  .offcanvas-content a:hover {
+.offcanvas-content a:hover {
     color: #f1f1f1;
-  }
+}
   
-  .closebtn {
+.closebtn {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 36px;
     margin-left: 50px;
-  }
-
+}
 .wrapper {
     min-height: 100%;
     display: flex;
@@ -130,3 +109,11 @@ footer{
     align-items: flex-start;
     justify-content: center;
   }
+
+.Precio{
+  font-size: 40px;
+}
+.boton{
+  color: brown;
+}
+
