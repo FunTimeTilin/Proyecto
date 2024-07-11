@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 shadow-lg mx-auto text-center p-3">
-                    <h2 class="my-3">Lista Usuarios</h2><br>
+                    <h2 class="my-3">Lista de empleados</h2><br>
                     {% if request.user.is_authenticated %}
                     <h3>Bienvenido {{request.user.username}}</h3>
                     <a href="{% url 'logout' %}">
@@ -33,20 +33,22 @@
                             <th>Rut</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
+                            <th>Cargo</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </thead>
                         <tbody>
-                            {% if usuarios %}
-                            {% for tmp in usuarios %}
+                            {% if empleados %}
+                            {% for tmp in empleados %}
                             <tr>
                                 <td>{{tmp.rut}}</td>
                                 <td>{{tmp.nombre}}</td>
                                 <td>{{tmp.apellido_paterno}}</td>
-                                <td><a href="{% url 'user_findEdit' pk=tmp.rut%}"><button
+                                <td>{{tmp.id_genero.genero}}</td>
+                                <td><a href="{% url 'user_findEdit' pk=tmp.rut %}"><button
                                             class="btn btn-warning">Modificar</button></a></td>
-                                <td><a href="{% url 'user_del' pk=tmp.rut%}"><button
-                                            class="btn btn-danger">Eliminar</button></a></td>
+                                            <td><a href="{% url 'user_del' pk=tmp.rut%}"><button
+                                                class="btn btn-danger">Eliminar</button></a></td>
                             </tr>
                             {% endfor%}
                             {% endif %}
@@ -57,7 +59,7 @@
                         {{mensaje}}
                     </div>
                     {% endif%}
-                    <a href="{% url 'user_add' %}">
+                    <a href="{% url 'empleado_add' %}">
                         <button class="btn btn-primary">Agregar Registro</button>
                     </a>
                     <a href="{% url 'catalogo' %}">
@@ -72,6 +74,6 @@
     {% include 'base/footer.html' %}
 
 
-    <script src="{% static 'js/bootstrap.bundle.min.js}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

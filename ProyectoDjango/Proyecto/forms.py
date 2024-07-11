@@ -1,14 +1,11 @@
+# forms.py
 from django import forms
-from .models import Genero, Usuario
+from .models import Producto
 
-from django.forms import ModelForm
-
-class GeneroForm(ModelForm):
+class ProductoForm(forms.ModelForm):
     class Meta:
-        model = Genero
-        fields = "__all__"
+        model = Producto
+        fields = '__all__' 
 
-class UsuarioForm(ModelForm):
-    class Meta:
-        model = Usuario
-        fields = "__all__"
+
+

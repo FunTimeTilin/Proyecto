@@ -1,5 +1,7 @@
 from ProyectoDjango.urls import path
 from Proyecto import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", views.menu, name="menu"),
@@ -33,11 +35,14 @@ urlpatterns = [
     path("pintura", views.pintura, name="pintura"),
     path("piso", views.piso, name="piso"),
     path("crud", views.crud, name="crud"),
-    path("user_add", views.user_add, name="user_add"),
+    path("empleado_add", views.empleado_add, name="empleado_add"),
     path("user_update", views.user_update, name="user_update"),
     path("user_del/<str:pk>", views.user_del, name="user_del"),
     path("user_findEdit/<str:pk>", views.user_findEdit, name="user_findEdit"),
     path("logout", views.desconectar, name="logout"),
     path("catalogo", views.catalogo, name="catalogo"),
     path("producto_add", views.producto_add, name="producto_add"),
-]
+    path("producto_mod", views.producto_mod, name="producto_mod"),
+    path("productoedit/<str:pk>", views.productoedit, name="productoedit"),
+    path("producto_del/<str:pk>", views.producto_del, name="producto_del"),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

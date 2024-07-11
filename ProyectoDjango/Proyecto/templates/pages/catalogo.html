@@ -22,23 +22,23 @@
                     <h1 class="my-3">Catálogo de productos</h1>
                     <table class="table">
                         <thead>
-                            <th>Imagen</th>
                             <th>id del producto</th>
                             <th>Nombre</th>
                             <th>Precio</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </thead>
                         <tbody>
                             {% if productos %}
                             {% for tmp in productos %}
                             <tr>
-                                {% if producto.imagen %}
-                                <td scope="row"><img src="{{ producto.imagen.url }}" alt=""></td>
-                                {% else %}
-                                <td scope="row"><img src="" alt="no hay imagen"></td>
-                                {% endif %}
                                 <td>{{tmp.id_producto}}</td>
                                 <td>{{tmp.nombre_producto}}</td>
                                 <td>${{tmp.precio}}</td>
+                                <td><a href="{% url 'productoedit' pk=tmp.id_producto%}"><button
+                                    class="btn btn-warning">Modificar</button></a></td>
+                                <td><a href="{% url 'producto_del' pk=tmp.id_producto%}"><button
+                                    class="btn btn-danger">Eliminar</button></td>
                             </tr>
                             {% endfor %}
                             {% endif %}
@@ -59,6 +59,6 @@
      <!-- footer -->
     {% include 'base/footer.html' %}
 
-     <script src="{%static 'js/bootstrap.min.bundle.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

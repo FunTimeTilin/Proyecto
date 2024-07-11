@@ -18,36 +18,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 shadow-lg mx-auto text-center p-3">
-                    <h2 class="my-3">Formulario de Modificacion</h2>
+                    <h2 class="my-3">Modificacion de empleado</h2>
                     <form action="{% url 'user_update' %}" method="POST" class="form-floating">
                         {% csrf_token %}
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.rut}} class="form-control" id="rut" name="rut" readonly>
+                            <input type="text" value={{empleado.rut}} class="form-control" id="rut" name="rut" readonly>
                             <label for="rut" class="form-label">Rut</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.nombre}} class="form-control" id="nombre" name="nombre">
+                            <input type="text" value={{empleado.nombre}} class="form-control" id="nombre" name="nombre">
                             <label for="nombre" class="form-label">Nombre</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.apellido_paterno}} class="form-control" id="appPaterno"
+                            <input type="text" value={{empleado.apellido_paterno}} class="form-control" id="appPaterno"
                                 name="appPaterno">
                             <label for="appPaterno" class="form-label">Apellido Paterno</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.apellido_materno}} class="form-control" id="appMaterno"
+                            <input type="text" value={{empleado.apellido_materno}} class="form-control" id="appMaterno"
                                 name="appMaterno">
                             <label for="appMaterno" class="form-label">Apellido Materno</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="date" value={{usuario.fecha_nacimiento|date:"Y-m-d"}} class="form-control"
+                            <input type="date" value={{empleado.fecha_nacimiento|date:"Y-m-d"}} class="form-control"
                                 id="fecha" name="fecha">
                             <label for="fecha" class="form-label">Fecha</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
                             <select class="form-select" id="genero" name="genero">
                                 {% for tmp in generos %}
-                                {% if tmp.genero == usuario.id_genero.genero%}
+                                {% if tmp.genero == empleado.id_genero.genero%}
                                 <option value="{{tmp.id_genero}}" selected>{{tmp.genero}}</option>
                                 {%else%}
                                 <option value="{{tmp.id_genero}}">{{tmp.genero}}</option>
@@ -57,21 +57,33 @@
                             <label for="genero" class="form-label">Genero</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="email" value={{usuario.email}} class="form-control" id="correo" name="correo">
+                            <select class="form-select" id="cargo" name="cargo">
+                                {% for tmp in cargo %}
+                                {% if tmp.cargo == empleado.id_cargo.nombre_cargo %}
+                                <option value="{{tmp.id_cargo}}" selected>{{tmp.nombre_cargo}}</option>
+                                {% else %}
+                                <option value="{{tmp.id_cargo}}">{{tmp.nombre_cargo}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="cargo" class="form-label">Cargo</label>
+                        </div>
+                        <div class="form-floating mb-3 w-50 mx-auto">
+                            <input type="email" value={{empleado.email}} class="form-control" id="correo" name="correo">
                             <label for="correo" class="form-label">Correo</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="password" value={{usuario.password}} class="form-control" id="password"
+                            <input type="password" value={{empleado.password}} class="form-control" id="password"
                                 name="password">
                             <label for="password" class="form-label">Contraseña</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.telefono}} class="form-control" id="telefono"
+                            <input type="text" value={{empleado.telefono}} class="form-control" id="telefono"
                                 name="telefono">
                             <label for="telefono" class="form-label">Telefono</label>
                         </div>
                         <div class="form-floating mb-3 w-50 mx-auto">
-                            <input type="text" value={{usuario.direccion}} class="form-control" id="direccion"
+                            <input type="text" value={{empleado.direccion}} class="form-control" id="direccion"
                                 name="direccion">
                             <label for="direccion" class="form-label">Direccion</label>
                         </div>

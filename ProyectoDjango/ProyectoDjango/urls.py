@@ -24,7 +24,4 @@ urlpatterns = [
     path('Proyecto/', include('Proyecto.urls')),
     path("", include("Proyecto.urls")),
     path("accounts/", include("Proyecto.urls"))
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.IMG_URL, document_root=settings.IMG_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,2 +1,50 @@
     path("producto_mod/<str:pk>", views.producto_mod, name="producto_mod"),
     path("producto_del/<str:pk>", views.producto_del, name="producto_del"),
+    def producto_mod(request):
+    if request.method=="POST":
+        nombre_producto = request.POST["nombre_producto"]
+        precio = request.POST["precio"]
+        categoria = request.POST["categoria"]
+        img_producto = request.POST.get('img_producto', None)
+        descripcion = request.POST["descripcion"]
+
+        objCategoria = Categoria.objects.get(id_categoria=categoria)
+        
+        obj = Producto(
+            nombre_producto = nombre_producto,
+            precio = precio,
+            categoria = objCategoria,
+            img_producto = img_producto,
+            descripcion = descripcion,
+        )
+        obj.save()
+
+        categoria = Categoria.objects.all()
+        context = {
+            "mensaje": "Producto modificado con exito!!!",
+            "categoria":categoria,
+            "producto":obj,
+        }
+        return render(request, "pages/producto_mod.html", context)
+
+def productoedit(request, pk):
+    if pk!= "":
+        """
+            objects.get() = Obtener datos con filtro
+            objects.all() = Obtener todos
+        """
+        producto = Producto.objects.get(id_producto=pk)
+        categoria = Categoria.objects.all()
+
+        context={
+            "producto":producto,
+            "categoria":categoria,
+        }
+        return render(request,"pages/producto_mod.html",context)
+    else:
+        producto = Producto.objects.all()
+        context={
+            "aviso":"Producto no encontrado",
+            "producto":producto
+        }
+        return render(request, "pages/catalogo.html",context)
