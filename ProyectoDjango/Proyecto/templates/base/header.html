@@ -33,7 +33,14 @@
           </form>
           <div class="mx-auto">
             <ul class="navbar-nav">
+              {% if request.user.is_authenticated %}
+              <b>Bienvenido {{request.user.username}}</b>
+              <a href="{% url 'logout' %}">
+                <button class="nav-link">Cerrar sesion</button>
+              </a>
+              {% else %}
               <a class="nav-link navbar-nav" href="{% url 'login'%}">Iniciar sesion</a>
+              {% endif %}
               <a class="nav-link" href="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t500x500.jpg">/</a>
               <a class="nav-link navbar-nav" href="{% url 'registro'%}">Registro</a>
               <a class="nav-link navbar-nav" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><img
